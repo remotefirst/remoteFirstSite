@@ -1,6 +1,150 @@
+<!DOCTYPE html>
 <html>
-<body>
-    <h1>remotefirst holding page...doodad</h1>
-    </body>
+<head>
+<title>remotefirst.io</title>
 
+<style>
+
+html,body{
+    height:100%;
+    width: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#logo-container img {
+  max-width: 95%;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+  padding-top: 10%;
+}
+@font-face { font-family: QSLight; src: url('fonts/Quicksand-Light.ttf'); } 
+@font-face { font-family: QSMed; src: url('fonts/Quicksand-Medium.ttf'); } 
+
+
+#blurb {
+  max-width: 70%;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+  padding-top: 5%;
+  color: white;
+  text-align:center;
+  font-family: QSMed;
+  font-size: 23px;
+}
+
+.tag {
+    font-family: QSLight;
+    margin:0 auto;
+    text-align:center;
+    padding: 20px 12px 10px 20px;
+    font: 13px
+}
+
+.tag input[type=email] {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;  
+    max-width: 300px;
+}
+
+.tag input[type=submit]{
+    background: #4B99AD;
+    padding: 8px 15px 8px 15px;
+    border: none;
+    color: #fff;
+}
+
+#email {
+    background:rgba(255,255,255,1);
+    border-radius: 4px;
+    width:100%;
+    max-width:300px;
+}
+
+#email:focus {
+    -moz-box-shadow: 0 0 8px #2e2e2e;
+    -webkit-box-shadow: 0 0 8px #2e2e2e;
+    box-shadow: 0 0 8px #2e2e2e;
+    border: 1px solid #2e2e2e;
+}
+
+#saveForm{
+    background-color: #46323b;
+    border-radius: 4px;
+    width:100%;
+    max-width:150px;
+}
+
+#saveForm:hover{
+    background: #61575c;
+    border-radius: 4px;
+}
+
+
+.container {
+    background-repeat:no-repeat;
+    height: 100%;
+    width: 100%;
+    background-image: url('images/background2.jpg');
+}
+
+
+@media all and (max-width: 600px) {
+
+#blurb {
+  max-width: 70%;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+  padding-top: 5%;
+  color: white;
+  text-align:center;
+  font-family: QSMed;
+  font-size: 20px;
+}
+}
+
+@media all and (max-width: 400px) {
+
+#blurb {
+  max-width: 70%;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+  padding-top: 5%;
+  color: white;
+  text-align:center;
+  font-family: QSMed;
+  font-size: 16px;
+}
+
+}
+</style>
+</head>
+<body>
+    <div  class="container"> 
+        <div id="logo-container"><a href="#"><img src="images/logo.png" alt="remotefirst.io" /></a></div>
+        <div id="blurb">"RemoteFirst's mission is to bring a variety of tools to help remote teams work in an agile fashion easily." Want to help us build some awesome tools with feedback and suggestions, email below!</div>
+        <div class="tag">
+            <form action="#">
+                    <input id="email" name="email" type="email" placeholder="Email Address..." spellcheck="false" value="" maxlength="255" tabindex="1"> 
+                    <input id="saveForm" name="saveForm" type="submit" value="Register Interest">
+            </form> 
+        </div>
+    </div>
+</body>
 </html>
