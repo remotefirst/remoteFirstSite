@@ -17,7 +17,7 @@ function registerEmail() {
         type: 'POST',
         url: 'https://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
         data: emailJson,
-        contentType: "application/json",
+        dataType: "jsonp",
         success: function(data){
             alert('Thank you for registering');
         },
