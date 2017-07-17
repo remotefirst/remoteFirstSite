@@ -15,9 +15,9 @@ function registerEmail() {
     $.ajax({
         contentType: 'application/json',
         type: 'POST',
-        url: 'https://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
+        url: 'http://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
         data: emailJson,
-        dataType: "jsonp",
+        dataType: "json",
         success: function(data){
             alert('Thank you for registering');
         },
