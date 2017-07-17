@@ -14,10 +14,11 @@ function registerEmail() {
     var emailJson = {email : emailValue};
     $.ajax({
         contentType: 'application/json',
+        crossDomain: true,
         type: 'POST',
         url: 'http://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
         data: emailJson,
-        dataType: "json",
+        dataType: "jsonp",
         success: function(data){
             alert('Thank you for registering');
         },
