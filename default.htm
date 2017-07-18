@@ -12,7 +12,7 @@ function registerEmail() {
     var emailValue = document.getElementById("email").value;
     var emailJson = {email : emailValue};
     $.ajax({
-        url: 'http://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
+        url: 'https://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
         data : {email : emailValue}, 
         contentType: "application/json",      
         type: "POST",
@@ -23,7 +23,7 @@ function registerEmail() {
             alert('Error registering email, please try again or contact...blah blah');
         }
     });  
-    ev.preventDefault();
+    //ev.preventDefault();
 }
 </script>
 
