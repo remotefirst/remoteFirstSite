@@ -97,7 +97,7 @@ body {
     max-width: 300px;
 }
 
-.tag input[type=submit]{
+.tag input[type=button]{
     background: #4B99AD;
     padding: 8px 15px 8px 15px;
     border: none;
@@ -174,9 +174,9 @@ body {
         <div id="logo-container"><a href="#"><img src="images/logo.png" alt="remotefirst.io" /></a></div>
         <div id="blurb">"RemoteFirst's mission is to bring a variety of tools to help remote teams work in an agile fashion easily." Want to help us build some awesome tools with feedback and suggestions, email below!</div>
         <div class="tag">
-            <form action="#" onsubmit="return registerEmail(this);">
+            <form action="#">
                     <input tabindex="1" id="email" name="email" type="email" placeholder="Email Address..." spellcheck="false" value="" maxlength="255" tabindex="1"> 
-                    <input tabindex="2" id="saveForm" name="saveForm" type="button" value="Register Interest">
+                    <input tabindex="2" onclick ="return registerEmail();" id="saveForm" name="saveForm" type="button" value="Register Interest">
             </form> 
         </div>
     </div>
