@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <head>
 <title>remotefirst.io</title>
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -7,24 +8,42 @@
 <script src="scripts/jquery-3.2.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script language="javascript" type="text/javascript">
+    function onSubmit(token) {
+        alert('thanks ' + document.getElementById('email').value + ' submitted');
+    }
 
-function registerEmail() {
-    var emailValue = document.getElementById("email").value;
-    var emailJson = {email : emailValue};
-    $.ajax({
-        url: 'http://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
-        processData: false,
-        data: JSON.stringify(emailJson), 
-        contentType: "application/json",      
-        type: "POST",
-        success: function(data){
-            alert('Thank you for registering');
-        },
-        error: function(){
-            alert('Error registering email, please try again or contact...blah blah');
+    function validate(event) {
+        event.preventDefault();
+        if (!document.getElementById('email').value) {
+            alert("You must add your email address, this is a required field");
+        } else {
+            grecaptcha.execute();
+            registerEmail();
         }
-    }); 
-}
+    }
+
+    function onload() {
+        var element = document.getElementById('saveForm');
+        element.onclick = validate;
+    }
+
+    function registerEmail() {
+        var emailValue = document.getElementById("email").value;
+        var emailJson = {email : emailValue};
+        $.ajax({
+            url: 'http://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
+            processData: false,
+            data: JSON.stringify(emailJson), 
+            contentType: "application/json",      
+            type: "POST",
+            success: function(data){
+                alert('Thank you for registering');
+            },
+            error: function(){
+                alert('Error registering email, please try again or contact...blah blah');
+            }
+        }); 
+    }
 </script>
 
 <style>
@@ -175,10 +194,12 @@ body {
         <div id="blurb">"RemoteFirst's mission is to bring a variety of tools to help remote teams work in an agile fashion easily." Want to help us build some awesome tools with feedback and suggestions, email below!</div>
         <div class="tag">
             <form action="#">
-                    <input tabindex="1" id="email" name="email" type="email" placeholder="Email Address..." spellcheck="false" value="" maxlength="255" tabindex="1"> 
-                    <input tabindex="2" onclick ="return registerEmail();" id="saveForm" name="saveForm" type="button" value="Register Interest">
+                <input tabindex="1" id="email" name="email" type="email" placeholder="Email Address..." spellcheck="false" value="" maxlength="255" tabindex="1"> 
+                <input tabindex="2" onclick ="return registerEmail();" id="saveForm" name="saveForm" type="button" value="Register Interest">
+                <div id="recapture" class="g-recaptcha" data-sitekey="6LenaCkUAAAAAB0Y7x1Rux99CgUSoMLpFL4uu5JN" data-callback="onSubmit" data-size="invisible"></div>
             </form> 
         </div>
     </div>
 </body>
+<script>onLoad();</script>
 </html>
