@@ -8,9 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script language="javascript" type="text/javascript">
 
-$( document ).ready(function() {
     function registerEmail() {
-
         var emailValue = document.getElementById("email").value;
         var emailJson = {email : emailValue};
         $.ajax({
@@ -27,7 +25,6 @@ $( document ).ready(function() {
         });  
         ev.preventDefault();
     }
-});
 
 </script>
 
