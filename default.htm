@@ -15,7 +15,7 @@ function registerEmail() {
     $.ajax({
         url: 'http://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
         data : {email : emailValue}, 
-        dataType : jsonp,       
+        contentType: "application/json",      
         type: POST,
         success: function(data){
             alert('Thank you for registering');
