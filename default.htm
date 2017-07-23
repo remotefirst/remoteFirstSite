@@ -36,12 +36,10 @@
             contentType: "application/json",  
             dataType: "text",
             type: "POST",
-            success: function (data, status, xhr) {
+            success: function (data) {
                 if (data == "Duplicate") {
                     alert('Email Already exists');
-                }
-                else
-                {
+                } else {
                     alert('Thank you for registering, an email has been sent to: ' + emailAdd + ' please click on the link within the email to validate');
                 }
             },
