@@ -35,8 +35,8 @@
             data: JSON.stringify(emailJson), 
             contentType: "application/json",      
             type: "POST",
-            success: function (data) {
-                if (data.value == "Duplicate") {
+            success: function (data, status, xhr) {
+                if (xhr.responseText == "Duplicate") {
                     alert('Email Already exists');
                 }
                 else {
