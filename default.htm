@@ -40,12 +40,12 @@
                 if (data == "Duplicate") {
                     alert('Email Already exists');
                 }
-                else {
-                    alert('Thank you for registering');
+                else if (data == "Registered") {
+                    alert('Thank you for registering, an email has been sent to: ' + emailAdd + ' please click on the link within the email to validate');
                 }
             },
             error: function(){
-                alert('Error registering email, please try again or contact...blah blah');
+                alert('Error registering email, please try again later.');
             }
         }); 
     }
