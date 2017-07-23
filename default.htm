@@ -39,8 +39,10 @@
             success: function (data) {
                 if (data == "Duplicate") {
                     alert('Email Already exists');
-                } else {
-                    alert('Thank you for registering, an email has been sent to: ' + emailAdd + ' please click on the link within the email to validate');
+                }
+                else
+                {
+                    alert('Thank you for registering, an email has been sent to: ' + data + ' please click on the link within the email to validate');
                 }
             },
             error: function(){
