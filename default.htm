@@ -27,7 +27,7 @@
 
     function registerEmail() {
         var emailValue = document.getElementById("email").value;
-        var emailJson = {email : emailValue};
+        var emailJson = {emailAdd : emailValue};
         $.ajax({
             url: 'http://remotefirstemailadd.azurewebsites.net/api/HttpTriggeReadDb?code=a6lAP6txFtQiB/DcHKe1mIOqhj4MCfx86T4WGT6boearKstdwC/4FA==',
             //url: 'http://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
