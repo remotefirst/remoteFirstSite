@@ -36,7 +36,7 @@
             contentType: "application/json",      
             type: "POST",
             success: function (data, status, xhr) {
-                if (xhr.responseText == "Duplicate") {
+                if (xhr.statusText == "Duplicate") {
                     alert('Email Already exists');
                 }
                 else {
