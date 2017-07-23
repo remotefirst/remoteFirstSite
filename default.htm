@@ -35,8 +35,13 @@
             data: JSON.stringify(emailJson), 
             contentType: "application/json",      
             type: "POST",
-            success: function(data){
-                alert('Thank you for registering');
+            success: function (data) {
+                if (data.value == "Duplicate") {
+                    alert('Email Already exists');
+                }
+                else {
+                    alert('Thank you for registering');
+                }
             },
             error: function(){
                 alert('Error registering email, please try again or contact...blah blah');
