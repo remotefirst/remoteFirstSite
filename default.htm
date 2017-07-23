@@ -33,10 +33,11 @@
             //url: 'http://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
             processData: false,
             data: JSON.stringify(emailJson), 
-            contentType: "application/json",      
+            contentType: "application/json",  
+            dataType: "text",
             type: "POST",
             success: function (data, status, xhr) {
-                if (xhr.statusText == "Duplicate") {
+                if (data == "Duplicate") {
                     alert('Email Already exists');
                 }
                 else {
