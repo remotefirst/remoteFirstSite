@@ -29,7 +29,7 @@
         var emailValue = document.getElementById("email").value;
         var emailJson = {emailAdd : emailValue};
         $.ajax({
-            url: 'http://remotefirstemailadd.azurewebsites.net/api/HttpTriggeReadDb?code=a6lAP6txFtQiB/DcHKe1mIOqhj4MCfx86T4WGT6boearKstdwC/4FA==',
+            url: 'http://prod-18.ukwest.logic.azure.com/workflows/d506f72f844e40769866b7e1c54abe33/triggers/request/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=3Um5VDN-Lb2VOtwJjruI2hlBfXeY3IneK6IsYEazbBY',
             //url: 'http://rfiojmtestemailwrite.azurewebsites.net/api/test1?code=IwxZN/UTBoRgapdf2MmSrlin/vcQ7le0xnrTKCP44JFrSykvyMO2mg==',
             processData: false,
             data: JSON.stringify(emailJson), 
