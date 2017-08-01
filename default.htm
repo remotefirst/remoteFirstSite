@@ -26,7 +26,7 @@
     }
 
     function registerEmail() {
-        $('#spinner').show();
+        document.getElementById('spinner').style.display = 'block';
         $('#fadeMe').show();
         var emailValue = document.getElementById("email").value;
         var emailJson = {emailAdd : emailValue};
