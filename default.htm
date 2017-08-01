@@ -51,7 +51,8 @@
                 alert('Error registering email, please try again later.');
             }
         }); 
-
+        document.getElementById('spinner').style.display = 'none';
+        document.getElementById('fadeMe').style.display = 'none';
     }
 </script>
 
@@ -85,7 +86,6 @@
         }
     }
     #spinner:before {
-        display: none;
         content: '';
         box-sizing: border-box;
         position: absolute;
@@ -100,6 +100,10 @@
         border-top-color: #333;
         animation: spinner .6s linear infinite;
         z-index: 999;
+    }
+
+    div#spinner {
+        display: none;
     }
 
     div#fadeMe {
