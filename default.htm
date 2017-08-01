@@ -27,7 +27,7 @@
 
     function registerEmail() {
         document.getElementById('spinner').style.display = 'block';
-        $('#fadeMe').show();
+        document.getElementById('fadeMe').style.display = 'block';
         var emailValue = document.getElementById("email").value;
         var emailJson = {emailAdd : emailValue};
         $.ajax({
@@ -84,7 +84,7 @@
             transform: rotate(360deg);
         }
     }
-    .spinner:before {
+    #spinner:before {
         display: none;
         content: '';
         box-sizing: border-box;
@@ -102,7 +102,7 @@
         z-index: 999;
     }
 
-    div.fadeMe {
+    div#fadeMe {
         display: none;
         opacity: 0.6;
         background: #000;
@@ -250,8 +250,8 @@
                 
             </form>
         </div>
-        <div class="fadeMe"></div>
-        <div class="spinner"></div>
+        <div id="fadeMe"></div>
+        <div id="spinner"></div>
     </div>
     <script>onload();</script>
 </body>
