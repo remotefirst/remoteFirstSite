@@ -8,6 +8,11 @@
 <script src="scripts/jquery-3.2.1.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+            $("#spinner").hide();
+            $("#fade").hide();
+    });
+
     function onSubmit(token) {
         return registerEmail();
     }
@@ -26,8 +31,8 @@
     }
 
     function registerEmail() {
-        document.getElementById('spinner').style.display = 'block';
-        document.getElementById('fadeMe').style.display = 'block';
+        $("#spinner").show();
+        $("#fade").show();
         var emailValue = document.getElementById("email").value;
         var emailJson = {emailAdd : emailValue};
         $.ajax({
@@ -51,8 +56,8 @@
                 alert('Error registering email, please try again later.');
             }
         }); 
-        document.getElementById('spinner').style.display = 'none';
-        document.getElementById('fadeMe').style.display = 'none';
+        $("#spinner").hide();
+        $("#fade").hide();
     }
 </script>
 
@@ -249,8 +254,8 @@
                 
             </form>
         </div>
-        <div id="fadeMe" style="display:none"></div>
-        <div id="spinner" style="display:none"></div>
+        <div id="fadeMe"></div>
+        <div id="spinner"></div>
     </div>
     <script>onload();</script>
 </body>
