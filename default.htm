@@ -32,7 +32,7 @@
 
     function registerEmail() {
         $("#spinner").show();
-        $("#fade").show();
+        $("#fadeMe").show();
         var emailValue = document.getElementById("email").value;
         var emailJson = {emailAdd : emailValue};
         $.ajax({
@@ -57,7 +57,7 @@
             }
         }); 
         $("#spinner").hide();
-        $("#fade").hide();
+        $("#fadeMe").hide();
     }
 </script>
 
@@ -112,7 +112,6 @@
         background: #000;
         width: 100%;
         height: 100%;
-        z-index: 10;
         top: 0;
         left: 0;
         position: fixed;
