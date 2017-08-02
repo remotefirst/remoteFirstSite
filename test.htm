@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<head>
+<title>remotefirst.io</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<script src="scripts/jquery-3.2.1.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script language="javascript" type="text/javascript">
+    $(document).ready(function () {
+            $("#spinner").hide();
+            $("#fade").hide();
+    });
+
+    function onSubmit(token) {
+        return registerEmail();
+    }
+    function validate(event) {
+        event.preventDefault();
+        if (!document.getElementById('email').value) {
+            alert("You must add your email address, this is a required field");
+        } else {
+            grecaptcha.execute();
+        }
+    }
+
+    function onload() {
+        var element = document.getElementById('saveForm');
+        element.onclick = validate;
+    }
+
+    function registerEmail() {
+        $("#spinner").show();
+        $("#fadeMe").show(); 
+        var emailValue = document.getElementById("email").value;
+        var emailJson = {emailAdd : emailValue};
+        $.ajax({
+            url: 'https://prod-18.ukwest.logic.azure.com/workflows/d506f72f844e40769866b7e1c54abe33/triggers/request/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Frequest%2Frun&sv=1.0&sig=3Um5VDN-Lb2VOtwJjruI2hlBfXeY3IneK6IsYEazbBY',
+            processData: false,
+            data: JSON.stringify(emailJson), 
+            contentType: "application/json",  
+            dataType: "text",
+            type: "POST",
+            success: function (data) {
+                if (data == "Duplicate") {
+                    alert('Email Already exists');
+                }
+                else
+                {
+                    alert('Thank you for registering, an email has been sent to: ' + data + ' please click on the link within the email to validate');
+                }
+            },
+            error: function(){
+                alert('Error registering email, please try again later.');
+            }
+        }); 
+        $("#spinner").hide();
+        $("#fadeMe").hide();
+    }
+</script>
+
+<style>
+
+    html { 
+        background: url(images/background2.jpg); 
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-color: #464646;
+    }
+
+    html,body{
+        height:100%;
+        width: 100%;
+    }
+
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    @keyframes spinner {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    #spinner:before {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        margin-left: -10px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+        border-top-color: #333;
+        animation: spinner .6s linear infinite;
+        z-index: 999;
+    }
+
+    div#fadeMe {
+        opacity: 0.6;
+        background: #000;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: fixed;
+        z-index: 998;
+    }
+
+    #logo-container img {
+      max-width: 95%;
+      height: auto !important;
+      display: block;
+      margin: 0 auto;
+      padding-top: 10%;
+    }
+    @font-face { font-family: QSLight; src: url('fonts/Quicksand-Light.ttf'); } 
+    @font-face { font-family: QSMed; src: url('fonts/Quicksand-Medium.ttf'); } 
+
+
+    #blurb {
+      max-width: 70%;
+      height: auto !important;
+      display: block;
+      margin: 0 auto;
+      padding-top: 5%;
+      color: white;
+      text-align:center;
+      font-family: QSMed;
+      font-size: 23px;
+    }
+
+    .tag {
+        font-family: QSLight;
+        margin:0 auto;
+        text-align:center;
+        padding: 40px 10px 0px 10px;
+        font: 13px
+    }
+
+    .tag input[type=email] {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        border:1px solid #BEBEBE;
+        padding: 7px;
+        margin:0px;
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+        outline: none;  
+        max-width: 300px;
+    }
+
+    .tag button{
+        background: #4B99AD;
+        padding: 8px 15px 8px 15px;
+        border: none;
+        color: #fff;
+    }
+
+    #email {
+        background:rgba(255,255,255,1);
+        border-radius: 4px;
+        width:100%;
+        max-width:300px;
+        margin-top:5px;
+    }
+
+    #email:focus {
+        -moz-box-shadow: 0 0 8px #2e2e2e;
+        -webkit-box-shadow: 0 0 8px #2e2e2e;
+        box-shadow: 0 0 8px #2e2e2e;
+        border: 1px solid #2e2e2e;
+    }
+
+    #saveForm{
+        background-color: #46323b;
+        -webkit-appearance: none;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        width:100%;
+        max-width:150px;
+        margin-top:5px;
+    }
+
+    #saveForm:hover{
+        background: #61575c;
+        border-radius: 4px;
+    }
+
+
+
+
+    @media all and (max-width: 600px) {
+
+    #blurb {
+      max-width: 70%;
+      height: auto !important;
+      display: block;
+      margin: 0 auto;
+      padding-top: 5%;
+      color: white;
+      text-align:center;
+      font-family: QSMed;
+      font-size: 20px;
+    }
+    }
+
+    @media all and (max-width: 400px) {
+
+    #blurb {
+      max-width: 70%;
+      height: auto !important;
+      display: block;
+      margin: 0 auto;
+      padding-top: 5%;
+      color: white;
+      text-align:center;
+      font-family: QSMed;
+      font-size: 16px;
+    }
+
+    }
+</style>
+
+</head>
+<body>
+    <div  class="container"> 
+        <div id="logo-container"><a href="#"><img src="images/logo.png" alt="remotefirst.io" /></a></div>
+        <div id="blurb">"RemoteFirst's mission is to bring a variety of tools to help remote teams work in an agile fashion easily." Want to help us build some awesome tools with feedback and suggestions, email below!</div>
+        <div class="tag">
+            <form action="#">
+                <input tabindex="1" id="email" name="email" type="email" placeholder="Email Address..." spellcheck="false" value="" maxlength="255" tabindex="1"> 
+                <!--<input tabindex="2" onclick ="return registerEmail();" id="saveForm" name="saveForm" type="button" value="Register Interest">-->
+                <button tabindex="2" id="saveForm" class="g-recaptcha"
+                        data-sitekey="6LfQiSkUAAAAAGKK-Rgom8Z_xOfbteRG8PULPb-k"
+                        data-callback="onSubmit">
+                    Register Interest
+                </button>
+                
+            </form>
+        </div>
+        <div id="fadeMe"></div>
+        <div id="spinner"></div>
+    </div>
+    <script>onload();</script>
+</body>
+</html>
